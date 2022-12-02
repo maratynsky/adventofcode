@@ -13,5 +13,5 @@ jobs:
           java-version: 17
       - uses: gradle/gradle-build-action@v2.0.1
         with:
-          build-root-directory: 2021
+          build-root-directory: year2021
           arguments: build
