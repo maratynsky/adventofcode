@@ -61,4 +61,5 @@ public class Day1 extends Day {
         System.out.println(new Day1().resolveP1());
         System.out.println(new Day1().resolveP2());
     }
+    
 }
