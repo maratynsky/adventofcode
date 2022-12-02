@@ -1,7 +1,8 @@
 name: Year2021
 on:
   push:
-    paths: year2021/**
+    paths:
+      - year2021/**
 jobs:
   gradle:
     strategy:
