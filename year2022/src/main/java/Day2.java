@@ -96,7 +96,6 @@ public class Day2 extends Day {
 
 
     public static void main(String[] args) {
-        System.out.println(new Day2().resolveP1());
-        System.out.println(new Day2().resolveP2());
+        new Day2().resolve();
     }
 }

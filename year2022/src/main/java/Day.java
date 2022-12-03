@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 public abstract class Day {
 
     protected abstract long resolveP1(Stream<String> input);
+
     protected abstract long resolveP2(Stream<String> input);
 
     public long resolveP1() {
@@ -31,6 +32,11 @@ public abstract class Day {
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void resolve() {
+        System.out.println("Part 1 = " + resolveP1());
+        System.out.println("Part 2 = " + resolveP2());
     }
 
 }
