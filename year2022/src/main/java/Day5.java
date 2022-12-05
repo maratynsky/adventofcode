@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -99,33 +100,15 @@ public class Day5 extends Day<String> {
 
     @Override
     protected String resolveP1(Stream<String> input) {
-
-        final String in = input.collect(Collectors.joining("\n"));
-        final String[] s = in.split("\n\n");
-
-        final String[] lines = s[0].split("\n");
-        final String[] moves = s[1].split("\n");
-
-        Ship ship = new Ship(lines);
-        System.out.println("Initial state:");
-        System.out.println(ship);
-        System.out.println("----------------------------------");
-
-        for (String moveStr : moves) {
-            Move move = Move.parse(moveStr);
-            ship.rearrangeCrateMover9001(move);
-            System.out.println("Rearrange: " + moveStr);
-            System.out.println(ship);
-            System.out.println("----------------------------------");
-        }
-
-        return ship.getTopCrates();
-
-
+        return resolve(input, Ship::rearrange);
     }
 
     @Override
     protected String resolveP2(Stream<String> input) {
+        return resolve(input, Ship::rearrangeCrateMover9001);
+    }
+
+    protected String resolve(Stream<String> input, BiConsumer<Ship, Move> rearrange) {
         final String in = input.collect(Collectors.joining("\n"));
         final String[] s = in.split("\n\n");
 
@@ -139,7 +122,7 @@ public class Day5 extends Day<String> {
 
         for (String moveStr : moves) {
             Move move = Move.parse(moveStr);
-            ship.rearrangeCrateMover9001(move);
+            rearrange.accept(ship, move);
             System.out.println("Rearrange: " + moveStr);
             System.out.println(ship);
             System.out.println("----------------------------------");
@@ -147,7 +130,6 @@ public class Day5 extends Day<String> {
 
         return ship.getTopCrates();
     }
-
 
     public static void main(String[] args) {
         new Day5().resolve();
