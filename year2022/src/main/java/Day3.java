@@ -6,7 +6,7 @@ import java.util.stream.StreamSupport;
 
 import static util.Util.batches;
 
-public class Day3 extends Day {
+public class Day3 extends Day<Long> {
 
     private static int weight(int c) {
         return (c >= 'a' && c <= 'z')
@@ -15,8 +15,8 @@ public class Day3 extends Day {
     }
 
     @Override
-    protected long resolveP1(Stream<String> input) {
-        return input.mapToInt(rucksack -> {
+    protected Long resolveP1(Stream<String> input) {
+        return (long) input.mapToInt(rucksack -> {
             int itemCount = rucksack.length();
 
             Set<Integer> compartment1 = rucksack.chars()
@@ -36,8 +36,8 @@ public class Day3 extends Day {
     }
 
     @Override
-    protected long resolveP2(Stream<String> input) {
-        return batches(input, 3)
+    protected Long resolveP2(Stream<String> input) {
+        return (long) batches(input, 3)
                 .mapToInt(group -> {
                     Set<Integer> elf1 = group.get(0).chars()
                             .mapToObj(Day3::weight)

@@ -2,7 +2,7 @@ import util.Pair;
 
 import java.util.stream.Stream;
 
-public class Day4 extends Day {
+public class Day4 extends Day<Long> {
 
     record Range(int a, int b) {
 
@@ -22,7 +22,7 @@ public class Day4 extends Day {
     }
 
     @Override
-    protected long resolveP1(Stream<String> input) {
+    protected Long resolveP1(Stream<String> input) {
         return input.map(line -> line.split(","))
                 .map(ranges -> new Pair<>(range(ranges[0]), range(ranges[1])))
                 .filter(ranges -> ranges.a().contains(ranges.b()) || ranges.b().contains(ranges.a()))
@@ -30,7 +30,7 @@ public class Day4 extends Day {
     }
 
     @Override
-    protected long resolveP2(Stream<String> input) {
+    protected Long resolveP2(Stream<String> input) {
         return input.map(line -> line.split(","))
                 .map(ranges -> new Pair<>(range(ranges[0]), range(ranges[1])))
                 .filter(ranges -> ranges.a().overlaps(ranges.b()))

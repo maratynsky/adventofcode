@@ -1,6 +1,6 @@
 import java.util.stream.Stream;
 
-public class Day2 extends Day {
+public class Day2 extends Day<Long> {
 
     private final static int WIN = 6;
     private final static int DRAW = 3;
@@ -84,14 +84,14 @@ public class Day2 extends Day {
     }
 
     @Override
-    protected long resolveP1(Stream<String> input) {
-        return input.map(Game::fromP1).mapToInt(Game::score).sum();
+    protected Long resolveP1(Stream<String> input) {
+        return (long) input.map(Game::fromP1).mapToInt(Game::score).sum();
 
     }
 
     @Override
-    protected long resolveP2(Stream<String> input) {
-        return input.map(Game::fromP2).mapToInt(Game::score).sum();
+    protected Long resolveP2(Stream<String> input) {
+        return (long) input.map(Game::fromP2).mapToInt(Game::score).sum();
     }
 
 

@@ -3,10 +3,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Day1 extends Day {
+public class Day1 extends Day<Long> {
 
     @Override
-    protected long resolveP1(Stream<String> input) {
+    protected Long resolveP1(Stream<String> input) {
         List<String> calories = input.toList();
 
         long maxCalories = 0;
@@ -33,7 +33,7 @@ public class Day1 extends Day {
     }
 
     @Override
-    protected long resolveP2(Stream<String> input) {
+    protected Long resolveP2(Stream<String> input) {
         List<String> calories = input.toList();
 
         List<Long> totalCaloriesCarriedByElfs = new ArrayList<>();

@@ -6,13 +6,13 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public abstract class Day {
+public abstract class Day<R> {
 
-    protected abstract long resolveP1(Stream<String> input);
+    protected abstract R resolveP1(Stream<String> input);
 
-    protected abstract long resolveP2(Stream<String> input);
+    protected abstract R resolveP2(Stream<String> input);
 
-    public long resolveP1() {
+    public R resolveP1() {
         try {
             final var className = this.getClass().getSimpleName();
             Path path = Paths.get(Objects.requireNonNull(getClass().getClassLoader()
@@ -23,7 +23,7 @@ public abstract class Day {
         }
     }
 
-    public long resolveP2() {
+    public R resolveP2() {
         try {
             final var className = this.getClass().getSimpleName();
             Path path = Paths.get(Objects.requireNonNull(getClass().getClassLoader()
