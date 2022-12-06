@@ -35,8 +35,12 @@ public abstract class Day<R> {
     }
 
     public void resolve() {
-        System.out.println("Part 1 = " + resolveP1());
-        System.out.println("Part 2 = " + resolveP2());
+        System.out.println("Part 1 = " + toString(resolveP1()));
+        System.out.println("Part 2 = " + toString(resolveP2()));
+    }
+
+    protected String toString(R result) {
+        return result.toString();
     }
 
 }
