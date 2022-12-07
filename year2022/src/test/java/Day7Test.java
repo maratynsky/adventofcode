@@ -11,6 +11,6 @@ class Day7Test {
 
     @Test
     void testP2() {
-        assertEquals(0, new Day7().resolveP2());
+        assertEquals(24933642, new Day7().resolveP2());
     }
 }
