@@ -4,7 +4,7 @@ https://adventofcode.com/2022/
 
 ## Build Status
 
-![test](https://github.com/maratynsky/adventofcode/actions/workflows/year2021.yml/badge.svg)
+![test](https://github.com/maratynsky/adventofcode/actions/workflows/year2022.yml/badge.svg)
 
 ## Progress
 

@@ -129,12 +129,32 @@ public class Day7 extends Day<Long> {
                             .map(Dir.class::cast)
                             .flatMap(this::allDirs));
         }
+
+        public void print(){
+            print(root, 0);
+        }
+
+        public void print(Node node, int level){
+            System.out.print("  ".repeat(level));
+            System.out.print("- ");
+            System.out.print(node.name());
+            if(node instanceof Dir dir) {
+                System.out.println(" (dir)");
+                for (Node value : dir.nodes.values()) {
+                    print(value, level+1);
+                }
+            } else if(node instanceof File) {
+                System.out.println(" (file, size="+node.size()+")");
+            }
+
+        }
     }
 
     @Override
     protected Long resolveP1(Stream<String> input) {
         FileSystem fs = new FileSystem();
         input.forEach(fs::feed);
+        fs.print();
         return fs.p1();
     }
 
@@ -142,6 +162,7 @@ public class Day7 extends Day<Long> {
     protected Long resolveP2(Stream<String> input) {
         FileSystem fs = new FileSystem();
         input.forEach(fs::feed);
+        fs.print();
         long used = fs.size();
         long total = 70000000;
         long required = 30000000;
