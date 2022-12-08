@@ -11,6 +11,6 @@ class Day8Test {
 
     @Test
     void testP2() {
-        assertEquals(0, new Day8().resolveP2());
+        assertEquals(8, new Day8().resolveP2());
     }
 }
