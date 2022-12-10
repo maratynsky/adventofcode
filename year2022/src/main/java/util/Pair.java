@@ -1,4 +1,4 @@
 package util;
 
-public record Pair<A, B> (A a, B b) {
+public record Pair<A, B> (A x, B y) {
 }

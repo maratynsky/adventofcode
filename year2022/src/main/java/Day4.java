@@ -25,7 +25,7 @@ public class Day4 extends Day<Long> {
     protected Long resolveP1(Stream<String> input) {
         return input.map(line -> line.split(","))
                 .map(ranges -> new Pair<>(range(ranges[0]), range(ranges[1])))
-                .filter(ranges -> ranges.a().contains(ranges.b()) || ranges.b().contains(ranges.a()))
+                .filter(ranges -> ranges.x().contains(ranges.y()) || ranges.y().contains(ranges.x()))
                 .count();
     }
 
@@ -33,7 +33,7 @@ public class Day4 extends Day<Long> {
     protected Long resolveP2(Stream<String> input) {
         return input.map(line -> line.split(","))
                 .map(ranges -> new Pair<>(range(ranges[0]), range(ranges[1])))
-                .filter(ranges -> ranges.a().overlaps(ranges.b()))
+                .filter(ranges -> ranges.x().overlaps(ranges.y()))
                 .count();
     }
 

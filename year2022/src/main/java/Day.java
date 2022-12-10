@@ -8,15 +8,21 @@ import java.util.stream.Stream;
 
 public abstract class Day<R> {
 
+    private String inputFile;
+
+    public Day() {
+        final var className = this.getClass().getSimpleName();
+        inputFile = className + ".in";
+    }
+
     protected abstract R resolveP1(Stream<String> input);
 
     protected abstract R resolveP2(Stream<String> input);
 
     public R resolveP1() {
         try {
-            final var className = this.getClass().getSimpleName();
             Path path = Paths.get(Objects.requireNonNull(getClass().getClassLoader()
-                    .getResource(className + ".in")).toURI());
+                    .getResource(inputFile)).toURI());
             return resolveP1(Files.lines(path));
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
@@ -25,9 +31,9 @@ public abstract class Day<R> {
 
     public R resolveP2() {
         try {
-            final var className = this.getClass().getSimpleName();
+
             Path path = Paths.get(Objects.requireNonNull(getClass().getClassLoader()
-                    .getResource(className + ".in")).toURI());
+                    .getResource(inputFile)).toURI());
             return resolveP2(Files.lines(path));
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
@@ -41,6 +47,11 @@ public abstract class Day<R> {
 
     protected String toString(R result) {
         return result.toString();
+    }
+
+    protected Day<R> withInput(String filename) {
+        this.inputFile = filename;
+        return this;
     }
 
 }
