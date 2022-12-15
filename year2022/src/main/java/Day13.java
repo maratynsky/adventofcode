@@ -115,11 +115,11 @@ public class Day13 extends Day<Integer> {
         int i1 = 0;
         int i2 = 0;
         for (int i = 0; i < packets.size() && (i1 == 0 || i2 == 0); i++) {
-            if(packets.get(i).equals(p1)) i1 = i+1;
-            if(packets.get(i).equals(p2)) i2 = i+1;
+            if (packets.get(i).equals(p1)) i1 = i + 1;
+            if (packets.get(i).equals(p2)) i2 = i + 1;
         }
 
-        return i1*i2;
+        return i1 * i2;
 
     }
 
